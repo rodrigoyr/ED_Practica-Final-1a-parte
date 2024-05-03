@@ -24,8 +24,12 @@ public class Main {
         JButton abrirButton = new JButton("Abrir un archivo que contenga un experimento");
         abrirButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String archivo = JOptionPane.showInputDialog("Introduce el nombre del archivo:");
-                gestor.abrirExperimento(archivo);
+                try {
+                    String archivo = JOptionPane.showInputDialog("Introduce el nombre del archivo:");
+                    gestor.abrirExperimento(archivo);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(frame, "Error al abrir el archivo: " + ex.getMessage());
+                }
             }
         });
         panel.add(abrirButton);
@@ -33,8 +37,12 @@ public class Main {
         JButton crearExperimentoButton = new JButton("Crear un nuevo experimento");
         crearExperimentoButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String nombre = JOptionPane.showInputDialog("Introduce el nombre del experimento:");
-                gestor.crearNuevoExperimento(nombre);
+                try {
+                    String nombre = JOptionPane.showInputDialog("Introduce el nombre del experimento:");
+                    gestor.crearNuevoExperimento(nombre);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(frame, "Error al crear el experimento: " + ex.getMessage());
+                }
             }
         });
         panel.add(crearExperimentoButton);
