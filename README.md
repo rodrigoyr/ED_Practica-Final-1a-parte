@@ -11,10 +11,13 @@ PoblacionDeBacterias: Esta clase representa una población de bacterias en un ex
 MainTest: Esta es una clase de prueba que parece estar diseñada para probar la clase Main. Aunque el método de prueba mostrado (testCalculate) no tiene nad que ver con el programa de bacterias, pero muestra como funciona correctamente esta clase
 
 o   Qué decisiones de diseño se han tomado.
+Al principio queria crear una interfaz de usuario como pide el programa para el usuario pudiera hacer uso de ella y fuese mas claro, despues opte porque el usuario relizase todo desdela consola aunque finlamente implemente la intefaz de usuario lo que me genero problems con los botones y sus funciones
 
 o   Qué comprobaciones de integridad (y excepciones) se han implementado.
+Aunque al principio no añadi ningun manejo de expeciones finalmente opte por añadirlo a la clase principal main, añadir un manejo de expeciones basico
 
 o   Qué técnicas de ordenación y búsqueda ha utilizado y por qué lo ha hecho.
+Al integrar los botones de la interfaz de usuario consrgui añadir que el programa guardase los experimentos añadidos, como se muestra en el programa y se puede valorar, el programa busca entre todos los experimentos añadidos y muestra todos los datos de cada experimento
 
 o   Diagramas de clases UML.
 
@@ -23,14 +26,11 @@ o   Diagramas de clases UML.
 •           Listado de todo el código fuente de la aplicación organizado por paquetes (si aplica) y clases.
 
 •           Listado de pruebas unitarias realizadas.
+Prueba unitaria del MainTest dentro del modulo de Test
 
 •           Conclusiones (que incluirán, obligatoriamente, una valoración del tiempo dedicado a la práctica).
 
- Además de la defensa, la práctica se evaluará en relación a:
 
-•           Organización y estructura del código (utilización de conceptos y patrones de programación, orientada a objetos: herencia, polimorfismo, encapsulación, reutilización, utilización correcta de estructuras de control, etc.).
-
-•           Uso de Javadoc para documentar las clases y métodos.
 
 •           Funcionamiento ajustado a los requisitos establecidos (incluyendo, además de chequeos de datos, integridad de la información, gestión de excepciones...).
 
