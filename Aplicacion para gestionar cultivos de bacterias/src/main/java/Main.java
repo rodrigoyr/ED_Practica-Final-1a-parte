@@ -1,6 +1,9 @@
 import PoblacionDeBacterias.PoblacionDeBacterias;
 import Experimento.GestorDeExperimentos;
 
+import PoblacionDeBacterias.PoblacionDeBacterias;
+import Experimento.GestorDeExperimentos;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,7 +40,8 @@ public class Main {
         });
         panel.add(crearExperimentoButton);
 
-        // Repite este proceso para cada botón...
+        // Añadir el resto de los botones y sus ActionListener correspondientes
+        // ...
 
         // Mostrar la ventana
         frame.setVisible(true);
