@@ -50,13 +50,16 @@ public class Main {
         JButton crearPoblacionButton = new JButton("Crear una población de bacterias y añadirla al experimento actual");
         crearPoblacionButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Aquí deberías abrir un nuevo diálogo para recoger todos los datos necesarios para crear una nueva PoblacionDeBacterias
-                // Por ejemplo:
-                String nombre = JOptionPane.showInputDialog("Introduce el nombre de la población:");
-                // Y así sucesivamente para el resto de los datos
-                // Finalmente, creas la nueva PoblacionDeBacterias y la añades al experimento actual
-                PoblacionDeBacterias nuevaPoblacion = new PoblacionDeBacterias(nombre, new Date(), new Date(), 0, 0.0, "Alta", 0);
-                gestor.getExperimentoActual().agregarPoblacion(nuevaPoblacion);
+                try {
+                    String nombre = JOptionPane.showInputDialog("Introduce el nombre de la población:");
+                    // Aquí deberías abrir un nuevo diálogo para recoger todos los datos necesarios para crear una nueva PoblacionDeBacterias
+                    // Y así sucesivamente para el resto de los datos
+                    // Finalmente, creas la nueva PoblacionDeBacterias y la añades al experimento actual
+                    PoblacionDeBacterias nuevaPoblacion = new PoblacionDeBacterias(nombre, new Date(), new Date(), 0, 0.0, "Alta", 0);
+                    gestor.getExperimentoActual().agregarPoblacion(nuevaPoblacion);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(frame, "Error al crear la población: " + ex.getMessage());
+                }
             }
         });
         panel.add(crearPoblacionButton);
@@ -64,13 +67,17 @@ public class Main {
         JButton visualizarPoblacionesButton = new JButton("Visualizar los nombres de todas las poblaciones de bacterias del experimento actual");
         visualizarPoblacionesButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Experimento experimentoActual = gestor.getExperimentoActual();
-                if (experimentoActual != null) {
-                    StringBuilder nombres = new StringBuilder();
-                    for (PoblacionDeBacterias poblacion : experimentoActual.getPoblaciones()) {
-                        nombres.append(poblacion.getNombre()).append("\n");
+                try {
+                    Experimento experimentoActual = gestor.getExperimentoActual();
+                    if (experimentoActual != null) {
+                        StringBuilder nombres = new StringBuilder();
+                        for (PoblacionDeBacterias poblacion : experimentoActual.getPoblaciones()) {
+                            nombres.append(poblacion.getNombre()).append("\n");
+                        }
+                        JOptionPane.showMessageDialog(frame, nombres.toString());
                     }
-                    JOptionPane.showMessageDialog(frame, nombres.toString());
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(frame, "Error al visualizar las poblaciones: " + ex.getMessage());
                 }
             }
         });
@@ -79,15 +86,19 @@ public class Main {
         JButton borrarPoblacionButton = new JButton("Borrar una población de bacterias del experimento actual");
         borrarPoblacionButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String nombre = JOptionPane.showInputDialog("Introduce el nombre de la población a borrar:");
-                Experimento experimentoActual = gestor.getExperimentoActual();
-                if (experimentoActual != null) {
-                    for (PoblacionDeBacterias poblacion : experimentoActual.getPoblaciones()) {
-                        if (poblacion.getNombre().equals(nombre)) {
-                            experimentoActual.eliminarPoblacion(poblacion);
-                            break;
+                try {
+                    String nombre = JOptionPane.showInputDialog("Introduce el nombre de la población a borrar:");
+                    Experimento experimentoActual = gestor.getExperimentoActual();
+                    if (experimentoActual != null) {
+                        for (PoblacionDeBacterias poblacion : experimentoActual.getPoblaciones()) {
+                            if (poblacion.getNombre().equals(nombre)) {
+                                experimentoActual.eliminarPoblacion(poblacion);
+                                break;
+                            }
                         }
                     }
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(frame, "Error al borrar la población: " + ex.getMessage());
                 }
             }
         });
@@ -96,17 +107,21 @@ public class Main {
         JButton verInformacionButton = new JButton("Ver información detallada de una población de bacterias del experimento actual");
         verInformacionButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String nombre = JOptionPane.showInputDialog("Introduce el nombre de la población:");
-                Experimento experimentoActual = gestor.getExperimentoActual();
-                if (experimentoActual != null) {
-                    for (PoblacionDeBacterias poblacion : experimentoActual.getPoblaciones()) {
-                        if (poblacion.getNombre().equals(nombre)) {
-                            // Aquí deberías mostrar un diálogo con toda la información de la población
-                            // Esto depende de cómo hayas implementado el método toString en la clase PoblacionDeBacterias
-                            JOptionPane.showMessageDialog(frame, poblacion.toString());
-                            break;
+                try {
+                    String nombre = JOptionPane.showInputDialog("Introduce el nombre de la población:");
+                    Experimento experimentoActual = gestor.getExperimentoActual();
+                    if (experimentoActual != null) {
+                        for (PoblacionDeBacterias poblacion : experimentoActual.getPoblaciones()) {
+                            if (poblacion.getNombre().equals(nombre)) {
+                                // Aquí deberías mostrar un diálogo con toda la información de la población
+                                // Esto depende de cómo hayas implementado el método toString en la clase PoblacionDeBacterias
+                                JOptionPane.showMessageDialog(frame, poblacion.toString());
+                                break;
+                            }
                         }
                     }
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(frame, "Error al visualizar la información de la población: " + ex.getMessage());
                 }
             }
         });
@@ -115,8 +130,12 @@ public class Main {
         JButton guardarButton = new JButton("Guardar");
         guardarButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String archivo = JOptionPane.showInputDialog("Introduce el nombre del archivo:");
-                gestor.guardarExperimento(archivo);
+                try {
+                    String archivo = JOptionPane.showInputDialog("Introduce el nombre del archivo:");
+                    gestor.guardarExperimento(archivo);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(frame, "Error al guardar el experimento: " + ex.getMessage());
+                }
             }
         });
         panel.add(guardarButton);
@@ -124,8 +143,12 @@ public class Main {
         JButton guardarComoButton = new JButton("Guardar como");
         guardarComoButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String archivo = JOptionPane.showInputDialog("Introduce el nombre del archivo:");
-                gestor.guardarExperimentoComo(archivo);
+                try {
+                    String archivo = JOptionPane.showInputDialog("Introduce el nombre del archivo:");
+                    gestor.guardarExperimentoComo(archivo);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(frame, "Error al guardar el experimento como: " + ex.getMessage());
+                }
             }
         });
         panel.add(guardarComoButton);
