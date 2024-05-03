@@ -21,58 +21,58 @@ public class PoblacionDeBacterias {
         this.dosisComida = dosisComida;
     }
 
-    // Getters y setters para cada campo
-
+    // Getters
     public String getNombre() {
         return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public Date getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
-
     public Date getFechaFin() {
         return fechaFin;
-    }
-
-    public void setFechaFin(Date fechaFin) {
-        this.fechaFin = fechaFin;
     }
 
     public int getNumeroBacteriasIniciales() {
         return numeroBacteriasIniciales;
     }
 
-    public void setNumeroBacteriasIniciales(int numeroBacteriasIniciales) {
-        this.numeroBacteriasIniciales = numeroBacteriasIniciales;
-    }
-
     public double getTemperatura() {
         return temperatura;
-    }
-
-    public void setTemperatura(double temperatura) {
-        this.temperatura = temperatura;
     }
 
     public String getCondicionesLuminosidad() {
         return condicionesLuminosidad;
     }
 
-    public void setCondicionesLuminosidad(String condicionesLuminosidad) {
-        this.condicionesLuminosidad = condicionesLuminosidad;
-    }
-
     public int getDosisComida() {
         return dosisComida;
+    }
+
+    // Setters
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public void setNumeroBacteriasIniciales(int numeroBacteriasIniciales) {
+        this.numeroBacteriasIniciales = numeroBacteriasIniciales;
+    }
+
+    public void setTemperatura(double temperatura) {
+        this.temperatura = temperatura;
+    }
+
+    public void setCondicionesLuminosidad(String condicionesLuminosidad) {
+        this.condicionesLuminosidad = condicionesLuminosidad;
     }
 
     public void setDosisComida(int dosisComida) {
