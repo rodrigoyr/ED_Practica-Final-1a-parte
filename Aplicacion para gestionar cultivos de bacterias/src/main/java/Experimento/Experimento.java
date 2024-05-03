@@ -30,22 +30,30 @@ public class Experimento {
         return this.poblaciones;
     }
 
-    public void guardar(String filename) throws IOException {
-        FileWriter writer = new FileWriter(filename);
-        for (PoblacionDeBacterias poblacion : poblaciones) {
-            writer.write(poblacion.toString() + "\n");
+    public void guardar(String filename) {
+        try {
+            FileWriter writer = new FileWriter(filename);
+            for (PoblacionDeBacterias poblacion : poblaciones) {
+                writer.write(poblacion.toString() + "\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Error al guardar el archivo: " + e.getMessage());
         }
-        writer.close();
     }
 
-    public void cargar(String filename) throws FileNotFoundException {
-        File file = new File(filename);
-        Scanner scanner = new Scanner(file);
-        while (scanner.hasNextLine()) {
-            String data = scanner.nextLine();
-            // Aquí deberías parsear la línea y crear una nueva PoblacionDeBacterias
-            // Esto depende de cómo hayas implementado el método toString en la clase PoblacionDeBacterias
+    public void cargar(String filename) {
+        try {
+            File file = new File(filename);
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                String data = scanner.nextLine();
+                // Aquí deberías parsear la línea y crear una nueva PoblacionDeBacterias
+                // Esto depende de cómo hayas implementado el método toString en la clase PoblacionDeBacterias
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Archivo no encontrado: " + e.getMessage());
         }
-        scanner.close();
     }
 }
