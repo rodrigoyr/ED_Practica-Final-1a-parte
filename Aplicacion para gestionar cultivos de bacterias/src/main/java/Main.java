@@ -1,12 +1,10 @@
 import PoblacionDeBacterias.PoblacionDeBacterias;
 import Experimento.GestorDeExperimentos;
 
-import PoblacionDeBacterias.PoblacionDeBacterias;
-import Experimento.GestorDeExperimentos;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
@@ -39,6 +37,20 @@ public class Main {
             }
         });
         panel.add(crearExperimentoButton);
+
+        JButton crearPoblacionButton = new JButton("Crear una población de bacterias y añadirla al experimento actual");
+        crearPoblacionButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Aquí deberías abrir un nuevo diálogo para recoger todos los datos necesarios para crear una nueva PoblacionDeBacterias
+                // Por ejemplo:
+                String nombre = JOptionPane.showInputDialog("Introduce el nombre de la población:");
+                // Y así sucesivamente para el resto de los datos
+                // Finalmente, creas la nueva PoblacionDeBacterias y la añades al experimento actual
+                PoblacionDeBacterias nuevaPoblacion = new PoblacionDeBacterias(nombre, new Date(), new Date(), 0, 0.0, "Alta", 0);
+                gestor.getExperimentoActual().agregarPoblacion(nuevaPoblacion);
+            }
+        });
+        panel.add(crearPoblacionButton);
 
         // Añadir el resto de los botones y sus ActionListener correspondientes
         // ...
