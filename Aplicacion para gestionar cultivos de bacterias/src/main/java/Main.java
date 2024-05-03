@@ -1,29 +1,61 @@
+
+
 import PoblacionDeBacterias.PoblacionDeBacterias;
 import PoblacionDeBacterias.GestorDePoblaciones;
 import Alimento.Alimento;
 import Alimento.CalculadorDeAlimento;
+import Experimento.Experimento;
 
 import java.util.Date;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Crear una instancia de GestorDePoblaciones
-        GestorDePoblaciones gestor = new GestorDePoblaciones();
+        Scanner scanner = new Scanner(System.in);
+        Experimento experimento = null;
 
-        // Crear algunas instancias de PoblacionDeBacterias y agregarlas al GestorDePoblaciones
-        PoblacionDeBacterias poblacion1 = new PoblacionDeBacterias("Poblacion 1", new Date(), new Date(), 100, 37.0, "Luz", 10);
-        PoblacionDeBacterias poblacion2 = new PoblacionDeBacterias("Poblacion 2", new Date(), new Date(), 200, 37.0, "Oscuridad", 20);
-        gestor.agregarPoblacion(poblacion1);
-        gestor.agregarPoblacion(poblacion2);
+        while (true) {
+            System.out.println("1. Abrir un archivo que contenga un experimento");
+            System.out.println("2. Crear un nuevo experimento");
+            System.out.println("3. Crear una población de bacterias y añadirla al experimento actual");
+            System.out.println("4. Visualizar los nombres de todas las poblaciones de bacterias del experimento actual");
+            System.out.println("5. Borrar una población de bacterias del experimento actual");
+            System.out.println("6. Ver información detallada de una población de bacterias del experimento actual");
+            System.out.println("7. Guardar");
+            System.out.println("8. Guardar como");
+            System.out.println("9. Salir");
 
-        // Crear una instancia de Alimento
-        Alimento alimento = new Alimento("Alimento 1", 50.0);
+            int opcion = scanner.nextInt();
+            scanner.nextLine();  // Consume newline left-over
 
-        // Crear una instancia de CalculadorDeAlimento y usarla para calcular la cantidad de alimento necesaria para cada población de bacterias
-        CalculadorDeAlimento calculador = new CalculadorDeAlimento();
-        for (PoblacionDeBacterias poblacion : gestor.getPoblaciones()) {
-            double cantidadAlimento = calculador.calcularAlimento(poblacion);
-            System.out.println("La cantidad de " + alimento.getNombre() + " necesaria para la " + poblacion.getNombre() + " es: " + cantidadAlimento);
+            switch (opcion) {
+                case 1:
+                    // Aquí deberías pedir al usuario el nombre del archivo y luego llamar a experimento.cargar
+                    break;
+                case 2:
+                    // Aquí deberías pedir al usuario el nombre del experimento y luego crear un nuevo Experimento
+                    break;
+                case 3:
+                    // Aquí deberías pedir al usuario los detalles de la nueva población y luego agregarla al experimento
+                    break;
+                case 4:
+                    // Aquí deberías imprimir los nombres de todas las poblaciones en el experimento
+                    break;
+                case 5:
+                    // Aquí deberías pedir al usuario el nombre de la población a eliminar y luego eliminarla del experimento
+                    break;
+                case 6:
+                    // Aquí deberías pedir al usuario el nombre de la población y luego imprimir sus detalles
+                    break;
+                case 7:
+                    // Aquí deberías pedir al usuario el nombre del archivo y luego llamar a experimento.guardar
+                    break;
+                case 8:
+                    // Aquí deberías pedir al usuario el nombre del nuevo archivo y luego llamar a experimento.guardar
+                    break;
+                case 9:
+                    System.exit(0);
+            }
         }
     }
 }
