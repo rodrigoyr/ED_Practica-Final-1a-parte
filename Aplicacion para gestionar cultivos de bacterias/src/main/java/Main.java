@@ -28,6 +28,15 @@ public class Main {
         });
         panel.add(abrirButton);
 
+        JButton crearExperimentoButton = new JButton("Crear un nuevo experimento");
+        crearExperimentoButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String nombre = JOptionPane.showInputDialog("Introduce el nombre del experimento:");
+                gestor.crearNuevoExperimento(nombre);
+            }
+        });
+        panel.add(crearExperimentoButton);
+
         // Repite este proceso para cada botón...
 
         // Mostrar la ventana
