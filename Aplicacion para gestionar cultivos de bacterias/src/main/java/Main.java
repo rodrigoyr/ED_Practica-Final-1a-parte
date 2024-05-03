@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
-
+import java.util.List;
 public class Main {
     public static void main(String[] args) {
         GestorDeExperimentos gestor = new GestorDeExperimentos();
@@ -25,10 +25,28 @@ public class Main {
         abrirButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    String archivo = JOptionPane.showInputDialog("Introduce el nombre del archivo:");
-                    gestor.abrirExperimento(archivo);
+                    // Supongamos que tienes un método en el gestor que devuelve una lista de los nombres de todos los experimentos disponibles
+                    List<String> nombresExperimentos = gestor.getNombresExperimentos();
+
+                    // Creas un JComboBox con los nombres de los experimentos
+                    JComboBox<String> comboBox = new JComboBox<>(nombresExperimentos.toArray(new String[0]));
+
+                    // Muestras un diálogo para que el usuario seleccione un experimento
+                    JOptionPane.showMessageDialog(null, comboBox, "Selecciona un experimento", JOptionPane.QUESTION_MESSAGE);
+
+                    // Obtienes el experimento seleccionado
+                    String nombreExperimentoSeleccionado = (String) comboBox.getSelectedItem();
+
+                    // Abres el experimento seleccionado
+                    gestor.abrirExperimento(nombreExperimentoSeleccionado);
+
+                    // Obtienes el experimento actual (que es el que acabas de abrir)
+                    Experimento experimentoActual = gestor.getExperimentoActual();
+
+                    // Muestras todos los datos del experimento
+                    JOptionPane.showMessageDialog(frame, experimentoActual.toString());
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(frame, "Error al abrir el archivo: " + ex.getMessage());
+                    JOptionPane.showMessageDialog(frame, "Error al abrir el experimento: " + ex.getMessage());
                 }
             }
         });
@@ -38,8 +56,20 @@ public class Main {
         crearExperimentoButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    String nombre = JOptionPane.showInputDialog("Introduce el nombre del experimento:");
-                    gestor.crearNuevoExperimento(nombre);
+                    String nombreExperimento = JOptionPane.showInputDialog("Introduce el nombre del experimento:");
+                    gestor.crearNuevoExperimento(nombreExperimento);
+
+                    String nombrePoblacion = JOptionPane.showInputDialog("Introduce el nombre de la población:");
+                    Date fechaInicio = new Date(); // Aquí deberías abrir un nuevo diálogo para recoger la fecha de inicio
+                    Date fechaFin = new Date(); // Aquí deberías abrir un nuevo diálogo para recoger la fecha de fin
+                    int numeroBacteriasIniciales = Integer.parseInt(JOptionPane.showInputDialog("Introduce el número de bacterias iniciales:"));
+                    double temperatura = Double.parseDouble(JOptionPane.showInputDialog("Introduce la temperatura:"));
+                    String condicionesLuminosidad = JOptionPane.showInputDialog("Introduce las condiciones de luminosidad (Alta, Media, Baja):");
+                    int dosisComida = Integer.parseInt(JOptionPane.showInputDialog("Introduce la dosis de comida:"));
+
+                    // Finalmente, creas la nueva PoblacionDeBacterias y la añades al experimento actual
+                    PoblacionDeBacterias nuevaPoblacion = new PoblacionDeBacterias(nombrePoblacion, fechaInicio, fechaFin, numeroBacteriasIniciales, temperatura, condicionesLuminosidad, dosisComida);
+                    gestor.getExperimentoActual().agregarPoblacion(nuevaPoblacion);
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(frame, "Error al crear el experimento: " + ex.getMessage());
                 }
@@ -52,10 +82,15 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 try {
                     String nombre = JOptionPane.showInputDialog("Introduce el nombre de la población:");
-                    // Aquí deberías abrir un nuevo diálogo para recoger todos los datos necesarios para crear una nueva PoblacionDeBacterias
-                    // Y así sucesivamente para el resto de los datos
+                    Date fechaInicio = new Date(); // Aquí deberías abrir un nuevo diálogo para recoger la fecha de inicio
+                    Date fechaFin = new Date(); // Aquí deberías abrir un nuevo diálogo para recoger la fecha de fin
+                    int numeroBacteriasIniciales = Integer.parseInt(JOptionPane.showInputDialog("Introduce el número de bacterias iniciales:"));
+                    double temperatura = Double.parseDouble(JOptionPane.showInputDialog("Introduce la temperatura:"));
+                    String condicionesLuminosidad = JOptionPane.showInputDialog("Introduce las condiciones de luminosidad (Alta, Media, Baja):");
+                    int dosisComida = Integer.parseInt(JOptionPane.showInputDialog("Introduce la dosis de comida:"));
+
                     // Finalmente, creas la nueva PoblacionDeBacterias y la añades al experimento actual
-                    PoblacionDeBacterias nuevaPoblacion = new PoblacionDeBacterias(nombre, new Date(), new Date(), 0, 0.0, "Alta", 0);
+                    PoblacionDeBacterias nuevaPoblacion = new PoblacionDeBacterias(nombre, fechaInicio, fechaFin, numeroBacteriasIniciales, temperatura, condicionesLuminosidad, dosisComida);
                     gestor.getExperimentoActual().agregarPoblacion(nuevaPoblacion);
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(frame, "Error al crear la población: " + ex.getMessage());

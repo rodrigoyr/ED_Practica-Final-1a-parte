@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import tu.paquete.Main; // Reemplaza 'tu.paquete' con el paquete real de la clase Main
 
 public class MainTest {
     @Test
