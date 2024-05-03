@@ -52,8 +52,47 @@ public class Main {
         });
         panel.add(crearPoblacionButton);
 
-        // Añadir el resto de los botones y sus ActionListener correspondientes
-        // ...
+        JButton visualizarPoblacionesButton = new JButton("Visualizar los nombres de todas las poblaciones de bacterias del experimento actual");
+        visualizarPoblacionesButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Aquí deberías mostrar un diálogo con los nombres de todas las poblaciones de bacterias del experimento actual
+            }
+        });
+        panel.add(visualizarPoblacionesButton);
+
+        JButton borrarPoblacionButton = new JButton("Borrar una población de bacterias del experimento actual");
+        borrarPoblacionButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Aquí deberías abrir un nuevo diálogo para que el usuario pueda seleccionar qué población de bacterias quiere borrar
+            }
+        });
+        panel.add(borrarPoblacionButton);
+
+        JButton verInformacionButton = new JButton("Ver información detallada de una población de bacterias del experimento actual");
+        verInformacionButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Aquí deberías abrir un nuevo diálogo para que el usuario pueda seleccionar de qué población de bacterias quiere ver la información detallada
+            }
+        });
+        panel.add(verInformacionButton);
+
+        JButton guardarButton = new JButton("Guardar");
+        guardarButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String archivo = JOptionPane.showInputDialog("Introduce el nombre del archivo:");
+                gestor.guardarExperimento(archivo);
+            }
+        });
+        panel.add(guardarButton);
+
+        JButton guardarComoButton = new JButton("Guardar como");
+        guardarComoButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String archivo = JOptionPane.showInputDialog("Introduce el nombre del archivo:");
+                gestor.guardarExperimentoComo(archivo);
+            }
+        });
+        panel.add(guardarComoButton);
 
         // Mostrar la ventana
         frame.setVisible(true);
