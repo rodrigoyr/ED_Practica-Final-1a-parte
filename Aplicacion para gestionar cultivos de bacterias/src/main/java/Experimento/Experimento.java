@@ -56,4 +56,8 @@ public class Experimento {
             System.out.println("Archivo no encontrado: " + e.getMessage());
         }
     }
+
+    public String getNombre() {
+        return this.nombre;
+    }
 }

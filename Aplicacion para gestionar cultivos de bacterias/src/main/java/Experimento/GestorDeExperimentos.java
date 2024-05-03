@@ -7,16 +7,16 @@ import java.util.List;
 public class GestorDeExperimentos {
     private Experimento experimentoActual;
     private GestorDeArchivos gestorDeArchivos;
-    private List<Experimento> experimentos; // Añade una lista para almacenar los experimentos
+    private List<Experimento> experimentos;
 
     public GestorDeExperimentos() {
         this.gestorDeArchivos = new GestorDeArchivos();
-        this.experimentos = new ArrayList<>(); // Inicializa la lista de experimentos
+        this.experimentos = new ArrayList<>();
     }
 
     public void crearNuevoExperimento(String nombre) {
         this.experimentoActual = new Experimento(nombre);
-        this.experimentos.add(experimentoActual); // Añade el nuevo experimento a la lista
+        this.experimentos.add(experimentoActual);
     }
 
     public void abrirExperimento(String rutaArchivo) {
@@ -35,7 +35,6 @@ public class GestorDeExperimentos {
         return this.experimentoActual;
     }
 
-    // Método para obtener los nombres de los experimentos
     public List<String> getNombresExperimentos() {
         List<String> nombres = new ArrayList<>();
         for (Experimento experimento : this.experimentos) {
