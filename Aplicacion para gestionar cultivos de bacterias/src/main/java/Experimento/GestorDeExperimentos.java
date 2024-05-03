@@ -10,8 +10,8 @@ public class GestorDeExperimentos {
         this.gestorDeArchivos = new GestorDeArchivos();
     }
 
-    public void crearNuevoExperimento() {
-        this.experimentoActual = new Experimento();
+    public void crearNuevoExperimento(String nombre) {
+        this.experimentoActual = new Experimento(nombre);
     }
 
     public void abrirExperimento(String rutaArchivo) {
