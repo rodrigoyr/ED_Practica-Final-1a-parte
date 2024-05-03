@@ -1,10 +1,6 @@
 package Experimento;
 
 import PoblacionDeBacterias.PoblacionDeBacterias;
-import PoblacionDeBacterias.GestorDePoblaciones;
-import Alimento.Alimento;
-import Alimento.CalculadorDeAlimento;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,8 +8,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.FileNotFoundException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Experimento {
     private List<PoblacionDeBacterias> poblaciones;
