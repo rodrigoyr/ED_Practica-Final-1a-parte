@@ -20,6 +20,24 @@ o   Qué técnicas de ordenación y búsqueda ha utilizado y por qué lo ha hech
 Al integrar los botones de la interfaz de usuario consrgui añadir que el programa guardase los experimentos añadidos, como se muestra en el programa y se puede valorar, el programa busca entre todos los experimentos añadidos y muestra todos los datos de cada experimento
 
 o   Diagramas de clases UML.
+Clase Experimento:  
+Campos: nombre (String), poblaciones (List<poblaciondebacterias>)</poblaciondebacterias>
+Métodos: agregarPoblacion(PoblacionDeBacterias), eliminarPoblacion(PoblacionDeBacterias), getPoblaciones(), guardar(String), cargar(String), getNombre()
+Clase PoblacionDeBacterias:  
+Campos y métodos:  campos para representar las características de la población de bacterias y métodos para manipular y acceder a estos campos.
+Clase GestorDeExperimentos:  
+Campos: experimentoActual (Experimento), gestorDeArchivos (GestorDeArchivos), experimentos (List<experimento>)</experimento>
+Métodos: crearNuevoExperimento(String), abrirExperimento(String), guardarExperimento(String), guardarExperimentoComo(String), getExperimentoActual(), getNombresExperimentos()
+Clase GestorDeArchivos:  
+Campos y métodos: lectura y escritura de archivos, por lo que tendría métodos como abrirArchivo(String) y guardarArchivo(String, Experimento).
+Clase Main:  
+Métodos: main(String[])
+Las relaciones entre las clases serían:  
+GestorDeExperimentos tiene una relación de agregación con Experimento, ya que gestiona una lista de experimentos.
+Experimento tiene una relación de agregación con PoblacionDeBacterias, ya que gestiona una lista de poblaciones de bacterias.
+PoblacionDeBacterias, ya que gestiona una lista de poblaciones de bacterias.
+GestorDeExperimentos tiene una relación de asociación con GestorDeArchivos, ya que utiliza un GestorDeArchivos para abrir y guardar experimentos.
+Main tiene una relación de dependencia con GestorDeExperimentos, ya que utiliza un GestorDeExperimentos en su método main
 
 •           Listado de fallos conocidos y funcionalidades definidas en el enunciado que no se han implementado en el código entregado.
 
