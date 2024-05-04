@@ -11,10 +11,10 @@ PoblacionDeBacterias: Esta clase representa una población de bacterias en un ex
 MainTest: Esta es una clase de prueba que parece estar diseñada para probar la clase Main. Aunque el método de prueba mostrado (testCalculate) no tiene nad que ver con el programa de bacterias, pero muestra como funciona correctamente esta clase
 
 o   Qué decisiones de diseño se han tomado.
-Al principio queria crear una interfaz de usuario como pide el programa para el usuario pudiera hacer uso de ella y fuese mas claro, despues opte porque el usuario relizase todo desdela consola aunque finlamente implemente la intefaz de usuario lo que me genero problems con los botones y sus funciones
+Al principio queria crear una interfaz de usuario como pide el programa para el usuario pudiera hacer uso de ella y fuese más claro, despues opté porqué el usuario relizase todo desde la consola aunque finlamente implemente la intefaz de usuario lo que me generó problems con los botones y sus funciones
 
 o   Qué comprobaciones de integridad (y excepciones) se han implementado.
-Aunque al principio no añadi ningun manejo de expeciones finalmente opte por añadirlo a la clase principal main, añadir un manejo de expeciones basico
+Aunque al principio no añadí ningún manejo de expeciones finalmente opté por añadirlo a la clase principal main, añadir un manejo de expeciones basico
 
 o   Qué técnicas de ordenación y búsqueda ha utilizado y por qué lo ha hecho.
 Al integrar los botones de la interfaz de usuario consrgui añadir que el programa guardase los experimentos añadidos, como se muestra en el programa y se puede valorar, el programa busca entre todos los experimentos añadidos y muestra todos los datos de cada experimento
