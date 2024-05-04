@@ -1,7 +1,7 @@
 # ED_Practica-Final-1a-parte
+https://github.com/rodrigoyr/ED_Practica-Final-1a-parte.git
 
 ### Análisis y descripción de la aplicación. Este análisis y descripción dará respuesta a las siguientes preguntas:
-
 o   Cómo se han organizado y estructurado las clases y cuál es la responsabilidad de cada una.
 A continuacion explico las clases principaes y sus resposabilidades:
 Main: Esta es la clase principal, responsable de la interfaz de usuario y de manejar las interacciones del usuario, como crear y visualizar poblaciones de bacterias, borrar poblaciones, ver información detallada de una población y guardar el estado del experimento.  
