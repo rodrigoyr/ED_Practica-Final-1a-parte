@@ -20,18 +20,31 @@ o   Qué técnicas de ordenación y búsqueda ha utilizado y por qué lo ha hech
 Al integrar los botones de la interfaz de usuario consrgui añadir que el programa guardase los experimentos añadidos, como se muestra en el programa y se puede valorar, el programa busca entre todos los experimentos añadidos y muestra todos los datos de cada experimento
 
 o   Diagramas de clases UML.
+Clase Experimento:  
+Campos: nombre (String), poblaciones (List<poblaciondebacterias>)</poblaciondebacterias>
+Métodos: agregarPoblacion(PoblacionDeBacterias), eliminarPoblacion(PoblacionDeBacterias), getPoblaciones(), guardar(String), cargar(String), getNombre()
+Clase PoblacionDeBacterias:  
+Campos y métodos:  campos para representar las características de la población de bacterias y métodos para manipular y acceder a estos campos.
+Clase GestorDeExperimentos:  
+Campos: experimentoActual (Experimento), gestorDeArchivos (GestorDeArchivos), experimentos (List<experimento>)</experimento>
+Métodos: crearNuevoExperimento(String), abrirExperimento(String), guardarExperimento(String), guardarExperimentoComo(String), getExperimentoActual(), getNombresExperimentos()
+Clase GestorDeArchivos:  
+Campos y métodos: lectura y escritura de archivos, por lo que tendría métodos como abrirArchivo(String) y guardarArchivo(String, Experimento).
+Clase Main:  
+Métodos: main(String[])
+Las relaciones entre las clases serían:  
+GestorDeExperimentos tiene una relación de agregación con Experimento, ya que gestiona una lista de experimentos.
+Experimento tiene una relación de agregación con PoblacionDeBacterias, ya que gestiona una lista de poblaciones de bacterias.
+PoblacionDeBacterias, ya que gestiona una lista de poblaciones de bacterias.
+GestorDeExperimentos tiene una relación de asociación con GestorDeArchivos, ya que utiliza un GestorDeArchivos para abrir y guardar experimentos.
+Main tiene una relación de dependencia con GestorDeExperimentos, ya que utiliza un GestorDeExperimentos en su método main
 
 •           Listado de fallos conocidos y funcionalidades definidas en el enunciado que no se han implementado en el código entregado.
-
-•           Listado de todo el código fuente de la aplicación organizado por paquetes (si aplica) y clases.
+El principal problema que he tenido ha sifo a la hora de desarrollar la interfaz de usuario, ya que como he dicho anteriormente, mi principal objetivo era que el usuario hiciera uso del programa desde la consola. Más tarde, cuando tenía el programa completo, he decidido implmenetar una interfaz de uaurio gráfica, y aquí llega el problema, ya que me ha sido bastante dificil ser capaz de agregar las funcionalidades a cada botón, y auqneu finalmente lo he logrado, algunos experimentos al crearlos pueden no mostrarse del todo, y aunque todas las funcionalidaes y metodod están implementadod algunos pueden no funcionar de la mejor manera. Otro gran problema ha sido el .jar, tratando de encontrar la manera con compañeros y vídeos de internet, 
 
 •           Listado de pruebas unitarias realizadas.
 Prueba unitaria del MainTest dentro del modulo de Test
 
 •           Conclusiones (que incluirán, obligatoriamente, una valoración del tiempo dedicado a la práctica).
+Para concluir puede decir que ha sido un trabajo exigente, sobre todo por la interfaz gráfica para el usuario y como se puede hacer uso del programa. Las demás partes ya las había trabajado en otros trabajos, y auque la interfaz también, me ha supuesto un gran esfuerzo acabarla. Empecé a hacer el programa el miercoles, y tanto miercoles por la tarde como todo el jueves estuve tratando de crear el rograma perfecto directamente con la interfaz de usuario. El viernes a medio-día borre el trabajo entero y empecé de nuevo, de ahí que quisiera hacer la interacción usuario-máquina desde la consola, logré alm final de la tarde un proyecto bastante completo, y hoy, sabádo, día de la entrega, hago los últimos retoques y termino la descripción del proyecto y las preguntas.
 
-
-
-•           Funcionamiento ajustado a los requisitos establecidos (incluyendo, además de chequeos de datos, integridad de la información, gestión de excepciones...).
-
-•           Claridad del código y adecuación a las normas de estilo (correcto nombrado de clases, métodos y variables, comentarios internos, indentación del código...).
